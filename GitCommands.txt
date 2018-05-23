@@ -1,0 +1,44 @@
+# Initialize a Git Repository
+git init
+
+# Display Current state of project
+git status
+
+# Stage Files
+git add <Filename>
+git add '*.txt'
+git add --all
+
+# Commit Files
+git commit -m "Message"
+
+# View Commit Log
+git log
+
+# add remote repository
+git remote add <name> <Repository URL>
+ie git remote add origin https://github.com/project
+
+# Initial push to Remote
+git push -u origin master
+or
+git push -u origin --all
+
+# Pull Changes
+git pull origin master
+
+# Look at the most recent Differences
+git diff HEAD
+
+# Look at Staged Differences
+git diff --staged
+
+# Unstage a file
+git reset <filename>
+
+# Change a file back to last commit
+git checkout -- <Filename>
+
+# Delete Cached Git credentials
+git credential-manager delete
+
