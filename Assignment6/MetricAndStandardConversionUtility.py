@@ -63,11 +63,11 @@ def weights_menu():
             convertedFrom = "oz"
             convertedTo = "g"
         elif userSelection == 5:
-            convertedValue = convert_grams_to_kilograms(amount)
+            convertedValue = convert_metric_to_metric(amount, 3, convertUp=True)
             convertedFrom = "g"
             convertedTo = "kg"
         elif userSelection == 6:
-            convertedValue = convert_kilograms_to_grams(amount)
+            convertedValue = convert_metric_to_metric(amount, 3, convertUp=False)
             convertedFrom = "kg"
             convertedTo = "g"
         elif userSelection == 7:
@@ -102,6 +102,7 @@ def length_menu():
     print("\t14. Kilometers to Centimeters")
     print("\t15. Back to Main Menu")
     userSelection = input_menu_option("Enter selection: ", 15)
+
     if userSelection != 15:
         amount = input_decimal("Enter the amount to convert: ")
         if userSelection == 1:
@@ -136,6 +137,30 @@ def length_menu():
             convertedValue = convert_feet_to_inches(amount)
             convertedFrom = "ft"
             convertedTo = "in"
+        elif userSelection == 9:
+            convertedValue = convert_metric_to_metric(amount, 2, convertUp=True)
+            convertedFrom = "cm"
+            convertedTo = "m"
+        elif userSelection == 10:
+            convertedValue = convert_metric_to_metric(amount, 2, convertUp=False)
+            convertedFrom = "m"
+            convertedTo = "cm"
+        elif userSelection == 11:
+            convertedValue = convert_metric_to_metric(amount, 3, convertUp=True)
+            convertedFrom = "m"
+            convertedTo = "km"
+        elif userSelection == 12:
+            convertedValue = convert_metric_to_metric(amount, 3, convertUp=False)
+            convertedFrom = "km"
+            convertedTo = "m"
+        elif userSelection == 13:
+            convertedValue = convert_metric_to_metric(amount, 5, convertUp=True)
+            convertedFrom = "cm"
+            convertedTo = "km"
+        elif userSelection == 14:
+            convertedValue = convert_metric_to_metric(amount, 5, convertUp=False)
+            convertedFrom = "km"
+            convertedTo = "cm"
         display_results(amount, convertedFrom, convertedValue, convertedTo)
 # End length_menu
 
@@ -143,7 +168,7 @@ def length_menu():
 # =================== display_results()  ===================
 def display_results(amount, convertedFrom, convertedValue, convertedTo):
     print("\nResult:")
-    print(f"\t{amount} {convertedFrom} = {convertedValue} {convertedTo}\n")
+    print(f"\t{amount} {convertedFrom} = {convertedValue:.3f} {convertedTo}\n")
 # END display_results
 
 
