@@ -24,7 +24,7 @@ def main():
         if userSelection == 1:
             weights_menu()
         elif userSelection == 2:
-            # Call Lengths
+            length_menu()
         else:
             break
 
@@ -63,11 +63,11 @@ def weights_menu():
             convertedFrom = "oz"
             convertedTo = "g"
         elif userSelection == 5:
-            convertedValue = convert_grams_to_kilograms(amount)
+            convertedValue = convert_metric_to_metric(amount, 3, convertUp=True)
             convertedFrom = "g"
             convertedTo = "kg"
         elif userSelection == 6:
-            convertedValue = convert_kilograms_to_grams(amount)
+            convertedValue = convert_metric_to_metric(amount, 3, convertUp=False)
             convertedFrom = "kg"
             convertedTo = "g"
         elif userSelection == 7:
@@ -79,7 +79,7 @@ def weights_menu():
             convertedFrom = "oz"
             convertedTo = "lb"
 
-        print(f"{amount} {convertedFrom} = {convertedValue} {convertedTo}\n")
+        display_results(amount, convertedFrom, convertedValue, convertedTo)
 # END weight_menu
 
 
@@ -102,11 +102,75 @@ def length_menu():
     print("\t14. Kilometers to Centimeters")
     print("\t15. Back to Main Menu")
     userSelection = input_menu_option("Enter selection: ", 15)
+
     if userSelection != 15:
+        amount = input_decimal("Enter the amount to convert: ")
         if userSelection == 1:
-            print()
-        print(f"{amount} {convertedFrom} = {convertedValue} {convertedTo}\n")
+            convertedValue = convert_kilometers_to_miles(amount)
+            convertedFrom = "km"
+            convertedTo = "mi"
+        elif userSelection == 2:
+            convertedValue = convert_miles_to_kilometers(amount)
+            convertedFrom = "mi"
+            convertedTo = "km"
+        elif userSelection == 3:
+            convertedValue = convert_meters_to_feet(amount)
+            convertedFrom = "m"
+            convertedTo = "ft"
+        elif userSelection == 4:
+            convertedValue = convert_feet_to_meters(amount)
+            convertedFrom = "ft"
+            convertedTo = "m"
+        elif userSelection == 5:
+            convertedValue = convert_centimeters_to_inches(amount)
+            convertedFrom = "cm"
+            convertedTo = "in"
+        elif userSelection == 6:
+            convertedValue = convert_inches_to_centimeters(amount)
+            convertedFrom = "in"
+            convertedTo = "cm"
+        elif userSelection == 7:
+            convertedValue = convert_inches_to_feet(amount)
+            convertedFrom = "in"
+            convertedTo = "ft"
+        elif userSelection == 8:
+            convertedValue = convert_feet_to_inches(amount)
+            convertedFrom = "ft"
+            convertedTo = "in"
+        elif userSelection == 9:
+            convertedValue = convert_metric_to_metric(amount, 2, convertUp=True)
+            convertedFrom = "cm"
+            convertedTo = "m"
+        elif userSelection == 10:
+            convertedValue = convert_metric_to_metric(amount, 2, convertUp=False)
+            convertedFrom = "m"
+            convertedTo = "cm"
+        elif userSelection == 11:
+            convertedValue = convert_metric_to_metric(amount, 3, convertUp=True)
+            convertedFrom = "m"
+            convertedTo = "km"
+        elif userSelection == 12:
+            convertedValue = convert_metric_to_metric(amount, 3, convertUp=False)
+            convertedFrom = "km"
+            convertedTo = "m"
+        elif userSelection == 13:
+            convertedValue = convert_metric_to_metric(amount, 5, convertUp=True)
+            convertedFrom = "cm"
+            convertedTo = "km"
+        elif userSelection == 14:
+            convertedValue = convert_metric_to_metric(amount, 5, convertUp=False)
+            convertedFrom = "km"
+            convertedTo = "cm"
+        display_results(amount, convertedFrom, convertedValue, convertedTo)
 # End length_menu
+
+
+# =================== display_results()  ===================
+def display_results(amount, convertedFrom, convertedValue, convertedTo):
+    print("\nResult:")
+    print(f"\t{amount} {convertedFrom} = {convertedValue:.3f} {convertedTo}\n")
+# END display_results
+
 
 main()
 # *************************** NO CODE FOLLOWS ***************************
