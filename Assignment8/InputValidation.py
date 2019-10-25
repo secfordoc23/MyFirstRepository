@@ -1,8 +1,9 @@
 """
-    Program: Read Declaration
+    Program: Name Search
     File: InputValidation.py
     Author: Jason J Welch
     Date: 9/26/2019
+    Updated: 10/21/2019
     Purpose: Collection of methods for input validation
 
 """
@@ -66,17 +67,18 @@ def input_filename(message, fileOperation):
             return fileContents
 # END input_filename
 
+
 # ================== does_file_exist ==================
 def does_file_exist(filename):
     doesExist = False
     try:
-        fileContents = open(filename, "r")
+        infile = open(filename, "r")
     except IOError:
         print("File not found or error opening file!")
     else:
         doesExist = True
-        fileContents.close()
     finally:
+        infile.close()
         return doesExist
 # END does_file_exist
 

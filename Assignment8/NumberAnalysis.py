@@ -9,7 +9,7 @@
 """
 from InputValidation import *
 
-
+# ==================
 def main():
     while True:
         print("***************************************************************")
@@ -26,6 +26,7 @@ def main():
 # END main
 
 
+# ==================
 def get_list_of_numbers():
     numList = []
     for index in range(20):
@@ -35,6 +36,7 @@ def get_list_of_numbers():
 # END get_list_of_numbers
 
 
+# ==================
 def analyze_numbers(numList):
     print("The entered list of numbers: ")
     listTotal = 0
