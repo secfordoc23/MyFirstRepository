@@ -11,11 +11,9 @@ from InputValidation import *
 
 # =================== main ===================
 def main():
+    programName = "Most Frequent Characters Utility"
     while True:
-        print("***************************************************************")
-        print("\tMost Frequent Characters Utility")
-        print("***************************************************************")
-        userSelection = display_menu(("Find the most frequent character in a string", "Exit"))
+        userSelection = display_menu(programName, ("Find the most frequent character in a string", "Exit"))
         if userSelection == 1:
             enteredText = input("Enter Text: ")
             character = character_frequency(enteredText)

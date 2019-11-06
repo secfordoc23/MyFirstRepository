@@ -3,7 +3,7 @@
     File: InputValidation.py
     Author: Jason J Welch
     Date: 9/26/2019
-    Updated: 10/28/2019
+    Updated: 11/6/2019
     Purpose: Collection of methods for input validation
 
 """
@@ -36,9 +36,13 @@ def input_decimal(message):
 
 
 # ================== display_menu =========================
-def display_menu(options):
+def display_menu(programName, options):
+    divider = '*' * (len(programName) + 8)
     while True:
         try:
+            print(divider)
+            print(f"\t{programName}")
+            print(divider)
             print("Options: ")
             for index in range(len(options)):
                 print(f"\t{index + 1}. {options[index]}")
