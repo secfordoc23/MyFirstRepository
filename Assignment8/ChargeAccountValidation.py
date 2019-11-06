@@ -18,7 +18,7 @@ def main():
         print("***************************************************************")
         userSelection = display_menu(["Find a Charge Account Number", "Exit"])
         if userSelection == 1 and does_file_exist(filename):
-            chargeAccountList = get_charge_account_numbers(filename)
+            chargeAccountList = load_list_from_file(filename)
             accountToFind = input("Enter an account to find: ")
             if accountToFind in chargeAccountList:
                 print("\nValid Charge Account!\n")
@@ -30,15 +30,22 @@ def main():
 # END main
 
 
-def get_charge_account_numbers(filename):
-    infile = open(filename, "r")
+# ================== load_list_from_file ==================
+def load_list_from_file(fileName):
+    if not does_file_exist(fileName):
+        outFile = open(fileName, "w")
+        outFile.write("Default\n")
+        outFile.close()
 
-    chargeAccountList = infile.readline()
+    fileList = []
+    infile = open(fileName, "r")
+    for line in infile:
+        fileList.append(line.rstrip('\n'))
 
     infile.close()
 
-    return chargeAccountList
-# END get_charge_account_numbers
+    return fileList
+# END load_list_from_file
 
 
 main()

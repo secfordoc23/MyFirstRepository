@@ -1,5 +1,5 @@
 """
-    Program: Name Search
+    Program: Charge Account Validation
     File: InputValidation.py
     Author: Jason J Welch
     Date: 9/26/2019
